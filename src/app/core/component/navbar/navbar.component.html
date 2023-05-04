@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Menu">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="events"><mat-icon>event</mat-icon>Events</button>
+  <button mat-menu-item routerLink="members"><mat-icon>group</mat-icon>Members</button>
+  <button mat-menu-item routerLink="stats"><mat-icon>show_chart</mat-icon>Stats</button>
+  <button mat-menu-item routerLink="report"><mat-icon>report</mat-icon>Report</button>
+</mat-menu>
+&nbsp;
+ <span>Debilus Event Manager</span>
+ <span class="example-spacer"></span>
+ <button mat-icon-button [matMenuTriggerFor]="settings" matTooltip="User">
+   <mat-icon>person</mat-icon>
+ </button>
+ <mat-menu #settings="matMenu">
+  <button mat-menu-item><mat-icon>account_box</mat-icon>Profile</button>
+  <button mat-menu-item><mat-icon>manage_accounts</mat-icon>Settings</button>
+ </mat-menu>
+ <button mat-icon-button (click)="logout()" matTooltip="Logout">
+  <mat-icon>logout</mat-icon>
+</button>
+</mat-toolbar>
