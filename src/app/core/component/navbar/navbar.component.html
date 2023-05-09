@@ -11,6 +11,14 @@
 &nbsp;
  <span>Debilus Event Manager</span>
  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="notifications" matTooltip="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <mat-menu #notifications="matMenu">
+    <button mat-menu-item>Event 1</button>
+    <button mat-menu-item>Event 2</button>
+    <button mat-menu-item>Event 3</button>
+  </mat-menu>
  <button mat-icon-button [matMenuTriggerFor]="settings" matTooltip="User">
    <mat-icon>person</mat-icon>
  </button>
