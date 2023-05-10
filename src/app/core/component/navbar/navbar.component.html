@@ -1,10 +1,10 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Menu">
    <mat-icon>menu</mat-icon>
  </button>
  <mat-menu #menu="matMenu">
   <button mat-menu-item routerLink="events"><mat-icon>event</mat-icon>Events</button>
-  <button mat-menu-item routerLink="members"><mat-icon>group</mat-icon>Members</button>
+  <button mat-menu-item routerLink="users"><mat-icon>group</mat-icon>Members</button>
   <button mat-menu-item routerLink="stats"><mat-icon>show_chart</mat-icon>Stats</button>
   <button mat-menu-item routerLink="report"><mat-icon>report</mat-icon>Report</button>
 </mat-menu>
@@ -12,7 +12,7 @@
  <span>Debilus Event Manager</span>
  <span class="example-spacer"></span>
   <button mat-icon-button [matMenuTriggerFor]="notifications" matTooltip="Notifications">
-    <mat-icon>notifications</mat-icon>
+    <mat-icon matBadge="3" matBadgeColor="warn">notifications</mat-icon>
   </button>
   <mat-menu #notifications="matMenu">
     <button mat-menu-item>Event 1</button>

@@ -1,0 +1,10 @@
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.mat-list-option {
+  border: 1px solid #ccc;
+  padding: 10px;
+}

@@ -1,8 +1,10 @@
-export interface Root2 {
+export interface User {
   username: string
+  gender: string
   jobs: Job[]
   rank: Rank
   race: Race
+  registrationHistories: string[]
   active: boolean
 }
 

@@ -1,0 +1,51 @@
+<div class="container" *ngIf="!isLoading">
+  <div class="form-wrapper">
+  <form [formGroup]="formGroupUser">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Male">Male</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h3>Your Favorite Jobs</h3>
+    <mat-selection-list class="job-list" formControlName="jobs">
+      <mat-list-option *ngFor="let job of jobs" [value]="job">
+        <span>{{ job }}</span>
+      </mat-list-option>
+    </mat-selection-list>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Rank</mat-label>
+      <mat-select formControlName="rank">
+        <mat-option *ngFor="let rank of ranks" [value]="rank">{{rank}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Race</mat-label>
+      <mat-select formControlName="race">
+        <mat-option *ngFor="let race of races" [value]="race">{{race}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  </form>
+</div>
+</div>
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
