@@ -8,3 +8,18 @@
   border: 1px solid #ccc;
   padding: 10px;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.jobs{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  border: 1px solid #ccc;
+}

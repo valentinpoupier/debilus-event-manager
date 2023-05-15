@@ -18,14 +18,14 @@
         <mat-option value="Male">Male</mat-option>
       </mat-select>
     </mat-form-field>
-
-    <h3>Your Favorite Jobs</h3>
-    <mat-selection-list class="job-list" formControlName="jobs">
-      <mat-list-option *ngFor="let job of jobs" [value]="job">
-        <span>{{ job }}</span>
-      </mat-list-option>
-    </mat-selection-list>
-
+    <div class="jobs">
+      <h3>Your Favorite Jobs (optional)</h3>
+      <mat-selection-list class="job-list" formControlName="jobs">
+        <mat-list-option *ngFor="let job of jobs" [value]="job">
+          <span>{{ job }}</span>
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
     <mat-form-field appearance="fill">
       <mat-label>Rank</mat-label>
       <mat-select formControlName="rank">
