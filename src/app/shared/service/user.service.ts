@@ -4,6 +4,9 @@ import { User } from '../model/user';
 import { Observable } from 'rxjs';
 import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { UserForm } from '../model/userform';
+import { CharacterGame } from '../model/character';
+import { FC } from '../model/freecompany';
+import { SearchChar } from '../model/jsonsearchchar';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +14,8 @@ import { UserForm } from '../model/userform';
 export class UserService {
 
   private apiBaseUrl = 'http://localhost:8080/';
+
+  private xivApiBaseUrl = 'https://xivapi.com/';
 
   constructor(private $httpClient : HttpClient) { }
 
@@ -20,6 +25,18 @@ export class UserService {
 
   getUser(id: number): Observable<User> {
     return this.$httpClient.get<User>(this.apiBaseUrl + 'user/' + id);
+  }
+
+  getCharacter(id: number): Observable<CharacterGame> {
+    return this.$httpClient.get<CharacterGame>(this.xivApiBaseUrl + 'character/' + id);
+  }
+
+  searchCharacterByName(name: string): Observable<SearchChar> {
+    return this.$httpClient.get<SearchChar>(this.xivApiBaseUrl + 'character/search?name=' + name+'&server=Zodiark');
+  }
+
+  getFreeCompany(): Observable<FC> {
+    return this.$httpClient.get<FC>(this.xivApiBaseUrl + 'freecompany/9229283011365724630?data=FCM');
   }
 
   createUser(user: UserForm): Observable<User> {

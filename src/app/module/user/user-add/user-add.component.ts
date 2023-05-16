@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserForm } from 'src/app/model/userform';
-import { UserService } from 'src/app/service/user.service';
+import { UserForm } from 'src/app/shared/model/userform';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-user-add',
@@ -36,7 +36,6 @@ export class UserAddComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.formGroupUser.reset()
     this.isLoading = false
-    clearInterval(this.interval)
   }
 
   submit() {
@@ -49,7 +48,7 @@ export class UserAddComponent implements OnDestroy {
           console.log(user)
         }
       )
-      this.interval= setInterval(() => {
+      this.interval= setTimeout(() => {
       this.$router.navigateByUrl('/users')
       }, 1000);
     }

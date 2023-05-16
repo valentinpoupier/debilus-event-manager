@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/model/user';
-import { UserService } from 'src/app/service/user.service';
+import { User } from 'src/app/shared/model/user';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-user-all',

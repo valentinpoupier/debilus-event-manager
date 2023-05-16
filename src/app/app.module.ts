@@ -7,6 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/module/shared/shared.module';
 import { NavbarComponent } from './core/component/navbar/navbar.component';
+import { LoginComponent } from './module/login/login.component';
+import { HomeComponent } from './module/home/home.component';
 
 
 
@@ -14,7 +16,9 @@ import { NavbarComponent } from './core/component/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -31,9 +31,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { MatCommonModule } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/shared/service/auth.service';
+import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
 
 
 
@@ -111,6 +113,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatBadgeModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 
 })
