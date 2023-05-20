@@ -1,51 +1,83 @@
-<div class="container" *ngIf="!isLoading">
+<div class="container" *ngIf="!isLoading && character && member">
   <div class="form-wrapper">
-  <form [formGroup]="formGroupUser">
-    <mat-form-field appearance="fill">
-      <mat-label>Username</mat-label>
-      <input matInput formControlName="username">
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password">
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Gender</mat-label>
-      <mat-select formControlName="gender">
-        <mat-option value="false">Female</mat-option>
-        <mat-option value="true">Male</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="jobs">
-      <h3>Your Favorite Jobs (optional)</h3>
-      <mat-selection-list class="job-list" formControlName="jobs">
-        <mat-list-option *ngFor="let job of jobs" [value]="job">
-          <span>{{ job }}</span>
-        </mat-list-option>
-      </mat-selection-list>
-    </div>
-    <mat-form-field appearance="fill">
-      <mat-label>Rank</mat-label>
-      <mat-select formControlName="rank">
-        <mat-option *ngFor="let rank of ranks" [value]="rank">{{rank}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <form [formGroup]="formGroupUser">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword">
+      </mat-form-field>
+      <br>
+      <div class="jobs">
+        <h3>Your Favorite Jobs (optional)</h3>
+        <mat-selection-list class="job-list" formControlName="jobs">
+          <mat-list-option *ngFor="let job of jobs" [value]="job">
+            <span>{{ job }}</span>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+      <br>
+      <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+    </form>
+  </div>
+</div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Race</mat-label>
-      <mat-select formControlName="race">
-        <mat-option *ngFor="let race of races" [value]="race">{{race}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
+<div *ngIf="isLoading" class="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!character && newMember && !isLoading">
+  <form [formGroup]="formId">
+    <h2>Enter your character ID</h2>
+    <span>Login your character in lodestone, go to your character profile, copy the id found in the url and paste it in the "Character ID" field</span>
     <br>
-    <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+    <img src="../../../../assets/image/characterid.PNG" alt="url id">
+    <br>
+    <mat-form-field appearance="fill" >
+      <mat-label>Character ID</mat-label>
+      <input matInput type="text" formControlName="characterId">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="getCharacterById()">Submit</button>
   </form>
 </div>
+
+<div *ngIf="!newMember && !fcMember && !isLoading">
+  <form>
+    <h2>Are you a new member in fc ?</h2>
+    <br>
+    <p>
+      <span class="bold">New member </span>: you are a fc member <span class="red">for less than 24 hours</span> (you have to enter your character id)<br>
+      <span class="bold">Fc member </span>: you are a fc member <span class="red">for more than 24 hours</span> (you chose your character in the fc member list)
+    </p>
+    <br>
+    <div class="button">
+      <button mat-raised-button color="primary" (click)="newMemberButton()">new member</button>
+      &nbsp;
+      <button mat-raised-button color="primary" (click)="fcMemberButton()">fc member</button>
+    </div>
+  </form>
 </div>
-<div *ngIf="isLoading">
-  <mat-spinner></mat-spinner>
+
+<div *ngIf="fcMember && !isLoading && !character">
+  <form [formGroup]="formMember">
+    <h2>Choose your character</h2>
+    <br>
+    <mat-form-field appearance="fill" class="select_char">
+      <mat-label>Character</mat-label>
+      <mat-select formControlName="memberId">
+        <mat-option *ngFor="let member of freecompany.FreeCompanyMembers" [value]="member.ID" ><img src="{{member.Avatar}}" alt=""> <br> {{ member.Name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="getMemberById()">Next</button>
+  </form>
 </div>
 

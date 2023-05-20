@@ -23,12 +23,16 @@ export class UserService {
     return this.$httpClient.get<User[]>(`${this.apiBaseUrl}user/all`);
   }
 
-  getUser(id: number): Observable<User> {
+  getUserByUsername(username : string): Observable<User> {
+    return this.$httpClient.get<User>(this.apiBaseUrl + 'user/name/' + username);
+  }
+
+  getUserById(id: number): Observable<User> {
     return this.$httpClient.get<User>(this.apiBaseUrl + 'user/' + id);
   }
 
-  getCharacter(id: number): Observable<CharacterGame> {
-    return this.$httpClient.get<CharacterGame>(this.xivApiBaseUrl + 'character/' + id);
+  getCharacter(id: string): Observable<CharacterGame> {
+    return this.$httpClient.get<CharacterGame>(this.xivApiBaseUrl + 'character/' + id+'?extended=1');
   }
 
   searchCharacterByName(name: string): Observable<SearchChar> {
@@ -46,5 +50,9 @@ export class UserService {
 
 export const UserResolver: ResolveFn<User>=
   (route : ActivatedRouteSnapshot) =>{
-  return inject(UserService).getUser(route.params['id'])}
+  return inject(UserService).getUserByUsername(route.params['id'])}
+
+export const CharacterResolver: ResolveFn<CharacterGame>=
+  (route : ActivatedRouteSnapshot) =>{
+  return inject(UserService).getCharacter(route.params['id'])}
 

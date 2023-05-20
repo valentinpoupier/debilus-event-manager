@@ -4,8 +4,8 @@
 <div *ngIf="!isLoading">
   <table mat-table [dataSource]="users" color="primary">
     <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+      <th mat-header-cell *matHeaderCellDef> Name Character </th>
+      <td mat-cell *matCellDef="let user"> {{user.characterName}} </td>
     </ng-container>
     <ng-container matColumnDef="race">
       <th mat-header-cell *matHeaderCellDef> Race </th>
@@ -23,7 +23,7 @@
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let user"> <button mat-icon-button [matMenuTriggerFor]="actions" matTooltip="Actions"><mat-icon>settings</mat-icon></button>
         <mat-menu #actions="matMenu">
-          <button mat-menu-item routerLink="details">Details</button>
+          <button mat-menu-item routerLink="router-link-active" (click)="getUserById(user.id)" >Details</button>
           <button mat-menu-item>Update</button>
           <button mat-menu-item>Delete</button>
           <button mat-menu-item>Report</button>

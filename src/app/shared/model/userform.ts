@@ -1,7 +1,9 @@
 export interface UserForm {
   username: string
   password: string
-  gender: string
+  characterId: string
+  characterName: string
+  gender: boolean
   jobs: string[]
   rank: string
   race: string

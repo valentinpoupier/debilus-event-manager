@@ -11,11 +11,11 @@
 &nbsp;
  <span routerLink="" class="span_title">Debilus Event Manager</span>
  <span class="example-spacer"></span>
- <button mat-icon-button [matMenuTriggerFor]="settings" matTooltip="User" *ngIf="loginOrLogout()">
+ <button mat-icon-button [matMenuTriggerFor]="settings" matTooltip="{{user?.username}}" *ngIf="loginOrLogout()">
    <mat-icon>person</mat-icon>
  </button>
  <mat-menu #settings="matMenu">
-  <button mat-menu-item><mat-icon>account_box</mat-icon>Profile</button>
+  <button mat-menu-item routerLinkActive="router-link-active" (click)="getUserByUsername(user?.username)"><mat-icon>account_box</mat-icon>Profile</button>
   <button mat-menu-item><mat-icon>manage_accounts</mat-icon>Settings</button>
  </mat-menu>
  <button mat-icon-button (click)="logout()" matTooltip="Logout" *ngIf="loginOrLogout()">

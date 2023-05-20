@@ -1,8 +1,9 @@
 <div class="profile" *ngIf="!isLoading && character">
-  <h2>
+  <h2>Username: {{user.username}} <br>
+    Character:
     <span class="span_title">{{user.characterName}}</span>
   </h2>
-  <img *ngIf="character.Character.Avatar " [src]="character.Character.Avatar" alt="avatar">
+  <img [src]="character.Character.Avatar" alt="avatar">
 </div>
 
 <div *ngIf="!character">

@@ -2,8 +2,8 @@ export interface CharacterGame {
   Achievements: any
   AchievementsPublic: any
   Character: Character
-  FreeCompany: FreeCompany
-  FreeCompanyMembers: FreeCompanyMember[]
+  FreeCompany: any
+  FreeCompanyMembers: any
   Friends: any
   FriendsPublic: any
   Minions: any
@@ -23,8 +23,9 @@ export interface Character {
   FreeCompanyName: string
   GearSet: GearSet
   Gender: number
+  GenderID: number
   GrandCompany: GrandCompany
-  GuardianDeity: number
+  GuardianDeity: GuardianDeity
   ID: number
   Lang: any
   Name: string
@@ -32,24 +33,46 @@ export interface Character {
   ParseDate: number
   Portrait: string
   PvPTeamId: any
-  Race: number
+  Race: Race
   Server: string
-  Title: number
+  Title: Title
   TitleTop: boolean
-  Town: number
-  Tribe: number
+  Town: Town
+  Tribe: Tribe
 }
 
 export interface ActiveClassJob {
-  ClassID: number
+  Class: Class
   ExpLevel: number
   ExpLevelMax: number
   ExpLevelTogo: number
   IsSpecialised: boolean
-  JobID: number
+  Job: Job
   Level: number
   Name: string
   UnlockedState: UnlockedState
+}
+
+export interface Class {
+  Abbreviation: string
+  ClassJobCategory: ClassJobCategory
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface ClassJobCategory {
+  ID: number
+  Name: string
+}
+
+export interface Job {
+  Abbreviation: string
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
 }
 
 export interface UnlockedState {
@@ -58,15 +81,43 @@ export interface UnlockedState {
 }
 
 export interface ClassJob {
-  ClassID: number
+  Class: Class2
   ExpLevel: number
   ExpLevelMax: number
   ExpLevelTogo: number
   IsSpecialised: boolean
-  JobID: number
+  Job: Job2
   Level: number
   Name: string
   UnlockedState: UnlockedState2
+}
+
+export interface Class2 {
+  Abbreviation: string
+  ClassJobCategory: ClassJobCategory2
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface ClassJobCategory2 {
+  ID: number
+  Name: string
+}
+
+export interface Job2 {
+  Abbreviation: string
+  ClassJobCategory: ClassJobCategory3
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface ClassJobCategory3 {
+  ID: number
+  Name: string
 }
 
 export interface UnlockedState2 {
@@ -89,34 +140,30 @@ export interface ClassJobsElemental {
 }
 
 export interface GearSet {
-  Attributes: Attributes
-  ClassID: number
+  Attributes: Attribute[]
+  Class: Class3
   Gear: Gear
   GearKey: string
-  JobID: number
+  Job: Job3
   Level: number
 }
 
-export interface Attributes {
-  "1": number
-  "2": number
-  "3": number
-  "4": number
-  "5": number
-  "6": number
-  "7": number
-  "8": number
-  "19": number
-  "20": number
-  "21": number
-  "22": number
-  "24": number
-  "27": number
-  "33": number
-  "34": number
-  "44": number
-  "45": number
-  "46": number
+export interface Attribute {
+  Attribute: Attribute2
+  Value: number
+}
+
+export interface Attribute2 {
+  ID: number
+  Name: string
+}
+
+export interface Class3 {
+  Abbreviation: string
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
 }
 
 export interface Gear {
@@ -137,162 +184,486 @@ export interface Gear {
 export interface Body {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage
+}
+
+export interface Item {
+  ClassJobCategory: ClassJobCategory4
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory4 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory {
+  ID: number
+  Name: string
+}
+
+export interface Mirage {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Bracelets {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item2
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage2
+}
+
+export interface Item2 {
+  ClassJobCategory: ClassJobCategory5
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory2
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory5 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory2 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage2 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Earrings {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item3
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage3
+}
+
+export interface Item3 {
+  ClassJobCategory: ClassJobCategory6
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory3
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory6 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory3 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage3 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Feet {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item4
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage4
+}
+
+export interface Item4 {
+  ClassJobCategory: ClassJobCategory7
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory4
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory7 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory4 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage4 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Hands {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item5
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage5
+}
+
+export interface Item5 {
+  ClassJobCategory: ClassJobCategory8
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory5
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory8 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory5 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage5 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Head {
   Creator: any
-  Dye: number
-  ID: number
+  Dye: Dye
+  Item: Item6
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage6
+}
+
+export interface Dye {
+  ID: number
+  Icon: string
+  Name: string
+}
+
+export interface Item6 {
+  ClassJobCategory: ClassJobCategory9
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory6
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory9 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory6 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage6 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Legs {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item7
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage7
+}
+
+export interface Item7 {
+  ClassJobCategory: ClassJobCategory10
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory7
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory10 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory7 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage7 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface MainHand {
   Creator: any
-  Dye: any
+  Dye: Dye2
+  Item: Item8
+  Materia: any[]
+  Mirage: Mirage8
+}
+
+export interface Dye2 {
   ID: number
-  Materia: number[]
-  Mirage: number
+  Icon: string
+  Name: string
+}
+
+export interface Item8 {
+  ClassJobCategory: ClassJobCategory11
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory8
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory11 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory8 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage8 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Necklace {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item9
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage9
+}
+
+export interface Item9 {
+  ClassJobCategory: ClassJobCategory12
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory9
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory12 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory9 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage9 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Ring1 {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item10
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage10
+}
+
+export interface Item10 {
+  ClassJobCategory: ClassJobCategory13
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory10
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory13 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory10 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage10 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface Ring2 {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item11
   Materia: any[]
-  Mirage: number
+  Mirage: Mirage11
+}
+
+export interface Item11 {
+  ClassJobCategory: ClassJobCategory14
+  ID: number
+  Icon: string
+  ItemUICategory: ItemUicategory11
+  LevelEquip: number
+  LevelItem: number
+  Name: string
+  Rarity: number
+}
+
+export interface ClassJobCategory14 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory11 {
+  ID: number
+  Name: string
+}
+
+export interface Mirage11 {
+  ID: number
+  Icon: string
+  Name: string
 }
 
 export interface SoulCrystal {
   Creator: any
   Dye: any
-  ID: number
+  Item: Item12
   Materia: any[]
   Mirage: any
 }
 
-export interface GrandCompany {
-  NameID: number
-  RankID: number
-}
-
-export interface FreeCompany {
-  Active: string
-  ActiveMemberCount: number
-  Crest: string[]
-  DC: string
-  Estate: Estate
-  Focus: Focu[]
-  Formed: number
-  GrandCompany: string
-  ID: string
-  Name: string
-  ParseDate: number
-  Rank: number
-  Ranking: Ranking
-  Recruitment: string
-  Reputation: Reputation[]
-  Seeking: Seeking[]
-  Server: string
-  Slogan: string
-  Tag: string
-}
-
-export interface Estate {
-  Greeting: string
-  Name: string
-  Plot: string
-}
-
-export interface Focu {
-  Icon: string
-  Name: string
-  Status: boolean
-}
-
-export interface Ranking {
-  Monthly: number
-  Weekly: number
-}
-
-export interface Reputation {
-  Name: string
-  Progress: number
-  Rank: string
-}
-
-export interface Seeking {
-  Icon: string
-  Name: string
-  Status: boolean
-}
-
-export interface FreeCompanyMember {
-  Avatar: string
-  FeastMatches: number
+export interface Item12 {
+  ClassJobCategory: ClassJobCategory15
   ID: number
-  Lang: any
+  Icon: string
+  ItemUICategory: ItemUicategory12
+  LevelEquip: number
+  LevelItem: number
   Name: string
-  Rank: string
-  RankIcon: string
-  Server: string
+  Rarity: number
+}
+
+export interface ClassJobCategory15 {
+  ID: number
+  Name: string
+}
+
+export interface ItemUicategory12 {
+  ID: number
+  Name: string
+}
+
+export interface Job3 {
+  Abbreviation: string
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface GrandCompany {
+  Company: Company
+  Rank: Rank
+}
+
+export interface Company {
+  ID: number
+  Name: string
+  Url: string
+}
+
+export interface Rank {
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface GuardianDeity {
+  GuardianDeity: any
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface Race {
+  ID: number
+  Name: string
+  Url: string
+}
+
+export interface Title {
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface Town {
+  ID: number
+  Icon: string
+  Name: string
+  Url: string
+}
+
+export interface Tribe {
+  ID: number
+  Icon: any
+  Name: string
+  Url: string
 }

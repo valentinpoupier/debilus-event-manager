@@ -23,3 +23,22 @@ form {
   align-items: center;
   border: 1px solid #ccc;
 }
+.button{
+  display: inline;
+}
+
+.red{
+  color: rgb(255, 0, 140);
+}
+.bold{
+  font-weight: bold;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+

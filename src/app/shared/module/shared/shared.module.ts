@@ -33,7 +33,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { MatCommonModule } from '@angular/material/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatBadgeModule} from '@angular/material/badge';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/shared/service/auth.service';
 import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
 
@@ -76,7 +76,8 @@ import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
     MatCommonModule,
     HttpClientModule,
     MatBadgeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     MatCheckboxModule,
@@ -112,7 +113,8 @@ import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
     MatCommonModule,
     HttpClientModule,
     MatBadgeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     AuthService,

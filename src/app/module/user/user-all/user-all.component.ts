@@ -24,6 +24,17 @@ export class UserAllComponent implements OnInit, OnDestroy {
 
   }
 
+  getUserById(id: number | undefined) {
+    if(id !== undefined){
+      this.$userService.getUserById(id).subscribe(
+        (user) => {
+          this.$router.navigate(['/users', user.username])
+        }
+      )
+    }else{
+      this.$router.navigate(['/users'])
+    }
+  }
 
 
   displayedColumns: string[] = ['username', 'race', 'rank', 'gender', 'action'];

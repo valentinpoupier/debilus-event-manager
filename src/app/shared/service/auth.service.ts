@@ -39,7 +39,7 @@ export class AuthService {
   logout(){
     this.user = undefined;
     this._connectedSubject.next( this.connected );
-    this._router.navigateByUrl("/");
+    this._router.navigateByUrl("login");
   }
 
   get user(): Auth | undefined {
