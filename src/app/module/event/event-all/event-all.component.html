@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    <li *ngFor="let event of events">
+      <p [routerLink]="['/event', event.id]">{{event.name}}</p>
+    </li>
+  </ul>
+</div>
