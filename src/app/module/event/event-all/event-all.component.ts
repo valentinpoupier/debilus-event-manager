@@ -13,6 +13,8 @@ export class EventAllComponent implements OnInit {
 
   events: EventFC[] = []
 
+  displayedColumns: string[] = ['name', 'beginDate', 'endDate', 'organizer', 'action'];
+
   constructor(private $eventService : EventService) { }
 
   ngOnInit(): void {
@@ -21,8 +23,21 @@ export class EventAllComponent implements OnInit {
       (events) => {
         this.events = events
         this.isLoading = false
+        console.log(this.events)
       }
     )
+  }
+
+  getEventById(id: number | undefined) {
+    if(id !== undefined){
+      this.$eventService.getEventById(id).subscribe(
+        (event) => {
+          console.log(event)
+        }
+      )
+    }else{
+      console.log('id undefined')
+    }
   }
 
 }

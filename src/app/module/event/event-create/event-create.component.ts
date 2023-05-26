@@ -14,6 +14,7 @@ export class EventCreateComponent {
 
   constructor(private $eventService : EventService, private $autService: AuthService, private $router: Router) { }
 
+
   eventForm : FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required]),
     description: new FormControl(null, [Validators.required, Validators.maxLength(1000)]),
@@ -22,14 +23,23 @@ export class EventCreateComponent {
   });
 
 
+  isLoading: boolean = false
+
 
 
   form!: EventForm
 
 
   onSubmit() {
+    this.isLoading = true
     if(this.eventForm.valid) {
       this.form = this.eventForm.value
+      console.log(this.form)
+      if(this.form.beginDate > this.form.endDate){
+        this.isLoading = false
+        alert("The end date must be after the begin date")
+        return
+      }
       if(this.$autService.user != undefined){
         this.form.organizer = this.$autService.user.username
         this.$eventService.postEvent(this.eventForm.value).subscribe(
@@ -37,7 +47,8 @@ export class EventCreateComponent {
             this.eventForm.reset()
           }
         )
-        this.$router.navigate(['/events'])
+        this.isLoading = false
+        this.$router.navigate(['/events/all'])
       }
     }
   }

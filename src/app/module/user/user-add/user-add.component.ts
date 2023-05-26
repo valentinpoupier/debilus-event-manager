@@ -73,7 +73,8 @@ export class UserAddComponent implements OnDestroy, OnInit {
   }
 
   getMemberById() {
-    
+    this.isLoading = true;
+
     let usernameExists = false;
 
     this.freecompany.FreeCompanyMembers.forEach((member) => {
@@ -87,12 +88,14 @@ export class UserAddComponent implements OnDestroy, OnInit {
       users.forEach((user) => {
         if (user.characterId == this.member.ID.toString()) {
           usernameExists = true;
+          this.isLoading = false
           alert("Character already registered");
           return;
         }
       });
 
       if (usernameExists) {
+        this.isLoading = false
         return;
       }
 

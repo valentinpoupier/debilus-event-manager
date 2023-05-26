@@ -30,12 +30,16 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule, MatNativeDateModule } from '@angular/material/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatBadgeModule} from '@angular/material/badge';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/shared/service/auth.service';
 import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
+import { NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+
 
 
 
@@ -78,6 +82,11 @@ import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
     MatBadgeModule,
     ReactiveFormsModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatLuxonDateModule,
+    NgxMatNativeDateModule
   ],
   exports: [
     MatCheckboxModule,
@@ -115,6 +124,11 @@ import { JwtInterceptor } from 'src/app/interceptor/jwt.interceptor';
     MatBadgeModule,
     ReactiveFormsModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatLuxonDateModule,
+    NgxMatNativeDateModule
   ],
   providers: [
     AuthService,
