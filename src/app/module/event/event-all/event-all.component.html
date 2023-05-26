@@ -11,12 +11,12 @@
 
     <ng-container matColumnDef="beginDate">
       <th mat-header-cell *matHeaderCellDef> Start </th>
-      <td mat-cell *matCellDef="let event"> {{event.beginDate | date: 'MMMM dd - yyyy / h:mm a'}} </td>
+      <td mat-cell *matCellDef="let event"> {{event.beginDate | date: 'MMMM dd - yyyy | h:mm a'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="endDate">
       <th mat-header-cell *matHeaderCellDef> End </th>
-      <td mat-cell *matCellDef="let event"> {{event.endDate | date: 'MMMM dd - yyyy / h:mm a'}} </td>
+      <td mat-cell *matCellDef="let event"> {{event.endDate | date: 'MMMM dd - yyyy | h:mm a'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="organizer">
