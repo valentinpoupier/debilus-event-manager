@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { EventAllComponent } from './event-all/event-all.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 
 
@@ -20,7 +21,8 @@ import { EventAllComponent } from './event-all/event-all.component';
   declarations: [
     EventComponent,
     EventCreateComponent,
-    EventAllComponent
+    EventAllComponent,
+    EventDetailsComponent
   ],
   imports: [
     CommonModule,

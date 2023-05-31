@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventFC } from 'src/app/shared/model/event';
 import { EventService } from 'src/app/shared/service/event.service';
 
@@ -15,7 +16,7 @@ export class EventAllComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'beginDate', 'endDate', 'organizer', 'action'];
 
-  constructor(private $eventService : EventService) { }
+  constructor(private $eventService : EventService, private $router : Router) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -35,6 +36,7 @@ export class EventAllComponent implements OnInit {
           console.log(event)
         }
       )
+      this.$router.navigate(['/events', id])
     }else{
       console.log('id undefined')
     }

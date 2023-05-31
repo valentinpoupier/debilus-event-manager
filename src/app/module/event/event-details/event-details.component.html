@@ -1,0 +1,17 @@
+<div class="body">
+  <h1>{{event.name}}</h1>
+  <p>{{event.description}}</p>
+  <p>Start Date: {{event.beginDate | date: 'MMMM dd - yyyy | h:mm a'}}</p>
+  <p>End Date: {{event.endDate | date: 'MMMM dd - yyyy | h:mm a'}}</p>
+  <p>Organizer: {{event.organizer.characterName}}</p>
+  <div class="button">
+    <button mat-raised-button color="primary" (click)="addParticipant()" *ngIf="!isParticipant">Join</button>
+    <button mat-raised-button color="primary" (click)="removeParticipant()" *ngIf="isParticipant">Leave</button>
+    <button mat-raised-button color="primary" (click)="deleteEvent()" *ngIf="event.organizer.username == auth.username">Delete</button>
+  </div>
+  <br>
+  <h2>Participants</h2>
+  <mat-list role="list" *ngFor="let participant of event.participants">
+    <mat-list-item role="listitem">{{participant.characterName}}</mat-list-item>
+  </mat-list>
+</div>
