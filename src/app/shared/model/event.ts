@@ -4,6 +4,7 @@ export interface EventForm {
   beginDate: string
   endDate: string
   organizer: string
+
 }
 
 export interface EventFC {
@@ -15,6 +16,7 @@ export interface EventFC {
   participants: Participant[]
   organizer: Organizer
   feedbacks: Feedback[]
+  status: string
 }
 
 export interface Participant {

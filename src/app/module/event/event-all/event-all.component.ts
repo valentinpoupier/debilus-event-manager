@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventFC } from 'src/app/shared/model/event';
+import { AuthService } from 'src/app/shared/service/auth.service';
 import { EventService } from 'src/app/shared/service/event.service';
 
 @Component({
@@ -14,9 +15,15 @@ export class EventAllComponent implements OnInit {
 
   events: EventFC[] = []
 
-  displayedColumns: string[] = ['name', 'beginDate', 'endDate', 'organizer', 'action'];
+  officer: boolean = this.$authService.user?.role.includes('ROLE_OFFICER') ? true : false;
 
-  constructor(private $eventService : EventService, private $router : Router) { }
+  eventDone: boolean = false;
+
+
+
+  displayedColumns: string[] = ['name', 'beginDate', 'endDate', 'organizer', 'status', 'action'];
+
+  constructor(private $eventService : EventService, private $router : Router, private $authService: AuthService) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -25,8 +32,24 @@ export class EventAllComponent implements OnInit {
         this.events = events
         this.isLoading = false
         console.log(this.events)
+        this.events.forEach(
+          (event) => {
+            if(Date.parse(event.endDate) < Date.now()){
+              this.eventDone = true
+              event.status = 'Done'
+            }
+            if(Date.parse(event.beginDate) < Date.now() && Date.parse(event.endDate) > Date.now()){
+              event.status = 'In progress'
+            }
+            if(Date.parse(event.beginDate) > Date.now()){
+              event.status = 'Not started'
+            }
+            console.log(event.status)
+          }
+        )
       }
     )
+
   }
 
   getEventById(id: number | undefined) {

@@ -98,8 +98,6 @@ export class UserAddComponent implements OnDestroy, OnInit {
         this.isLoading = false
         return;
       }
-
-      this.isLoading = true;
       this.$userService.getCharacter(this.member.ID.toString()).subscribe((character) => {
         this.character = character;
         console.log(this.character);
